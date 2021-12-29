@@ -35,7 +35,11 @@
  */
 
 #if !defined(MBEDTLS_MEMORY_ALIGN_MULTIPLE)
-#define MBEDTLS_MEMORY_ALIGN_MULTIPLE       4 /**< Align on multiples of this value */
+# ifdef CONFIG_64BIT
+#  define MBEDTLS_MEMORY_ALIGN_MULTIPLE       8 /**< Align on multiples of this value */
+# else
+#  define MBEDTLS_MEMORY_ALIGN_MULTIPLE       4 /**< Align on multiples of this value */
+# endif
 #endif
 
 /* \} name SECTION: Module settings */
